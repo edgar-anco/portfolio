@@ -50,8 +50,8 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
   spareImg?: string;
-  emailCopied?: string;
-  copyMyEmail?: string;
+  emailCopied: string;
+  copyMyEmail: string;
 }) => {
   const [copied, setCopied] = useState(false);
 
