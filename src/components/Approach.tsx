@@ -1,20 +1,24 @@
-"use client";
-import React from "react";
+//"use client";
 
+import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/CanvasRevealEffect";
+import Card from "./ui/Card";
+import AceternityIcon from "./ui/AceternityIcon";
 
 const Approach = () => {
+  const t = useTranslations("Approach");
+
   return (
     <section className="w-full py-20" id="approach">
       <h1 className="heading">
-        My <span className="text-purple">approach</span>
+        {t("h1")} <span className="text-purple">{t("span")}</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
         <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          description="We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements."
+          title={t("cardTitle1")}
+          icon={<AceternityIcon order={t("cardIcon1")} />}
+          description={t("cardDesc1")}
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -22,9 +26,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Development & Progress Update"
-          icon={<AceternityIcon order="Phase 2" />}
-          description="Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+          title={t("cardTitle2")}
+          icon={<AceternityIcon order={t("cardIcon2")} />}
+          description={t("cardDesc2")}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -37,9 +41,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 3" />}
-          description="This is where the magic happens! Based on the approved design, I'll translate everything into functional code, building your website from the ground up."
+          title={t("cardTitle3")}
+          icon={<AceternityIcon order={t("cardIcon3")} />}
+          description={t("cardDesc3")}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -51,7 +55,7 @@ const Approach = () => {
     </section>
   );
 };
-
+/*
 const Card = ({
   title,
   icon,
@@ -133,5 +137,5 @@ export const Icon = ({ className, ...rest }: any) => {
     </svg>
   );
 };
-
+*/
 export default Approach;

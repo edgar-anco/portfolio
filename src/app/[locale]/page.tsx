@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
@@ -5,10 +6,19 @@ import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNav";
-import { navItems } from "@/data";
-import { FaHome } from "react-icons/fa";
 
 export default function Home() {
+  const t = useTranslations("FloatingNav");
+
+  const navItems = [
+    { name: t("homeName"), link: t("homeLink") },
+    { name: t("aboutName"), link: t("aboutLink") },
+    { name: t("projectsName"), link: t("projectsLink") },
+    { name: t("experienceName"), link: t("experienceLink") },
+    { name: t("approachName"), link: t("approachLink") },
+    { name: t("contactName"), link: t("contactLink") },
+  ];
+
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-clip">
       <div className="max-w-7xl w-full">

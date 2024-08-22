@@ -19,7 +19,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
         className
       )}
     >
@@ -37,6 +37,8 @@ export const BentoGridItem = ({
   imgClassName,
   titleClassName,
   spareImg,
+  emailCopied,
+  copyMyEmail,
 }: {
   className?: string;
   title?: string | React.ReactNode;
@@ -48,6 +50,8 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
   spareImg?: string;
+  emailCopied?: string;
+  copyMyEmail?: string;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -60,7 +64,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4 border border-white/[0.1]",
+        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
         className
       )}
       style={{
@@ -94,11 +98,7 @@ export const BentoGridItem = ({
           )}
         </div>
 
-        {id === 6 && (
-          <BackgroundGradientAnimation>
-            {/*<div className="absolute z-50 flex items-center justify-center text-white font-bold" />*/}
-          </BackgroundGradientAnimation>
-        )}
+        {id === 6 && <BackgroundGradientAnimation />}
 
         <div
           className={cn(
@@ -118,10 +118,10 @@ export const BentoGridItem = ({
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
               <div className="flex flex-col gap-3 lg:gap-8">
-                {["React.js", "Next.js", "TypeScrypt"].map((item) => (
+                {["Vue JS", "Flutter", "Next JS"].map((item) => (
                   <span
                     key={item}
-                    className="py-2 lg:py-4 lg:px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="py-2 lg:py-4 lg:px-3 text-xs lg:text-base opacity-25 lg:opacity-25 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
@@ -130,10 +130,10 @@ export const BentoGridItem = ({
               </div>
               <div className="flex flex-col gap-3 lg:gap-8">
                 <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
-                {["VueJS", "AWS", "MongoDB"].map((item) => (
+                {["ASP.Net", "Spring", "Node JS"].map((item) => (
                   <span
                     key={item}
-                    className="py-2 lg:py-4 lg:px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="py-2 lg:py-4 lg:px-3 text-xs lg:text-base opacity-25 lg:opacity-25 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
@@ -158,7 +158,7 @@ export const BentoGridItem = ({
               </div>
 
               <MagicButton
-                title={copied ? "Email copied!" : "Copy my email"}
+                title={copied ? emailCopied : copyMyEmail}
                 icon={<IoCopyOutline />}
                 position="left"
                 otherClasses="!bg-[#161A31]"
