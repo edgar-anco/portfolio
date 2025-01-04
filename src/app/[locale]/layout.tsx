@@ -38,10 +38,6 @@ export default function RootLayout({
     <html lang={locale}>
       <head>
         <link rel="icon" href="/edanco-logo.ico" />{" "}
-        {/* Cambia el nombre y la extensión si es necesario */}
-        {/* O si estás usando un .png
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        */}
       </head>
       <body className={inter.className}>
         <ThemeProvider
